@@ -20,31 +20,72 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guh-fF-XdJ">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="jO0-1z-yDn">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="fol-57-1XL"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Item" id="rxd-nD-fdy"/>
+                                    <navigationItem title="Stop Watch" id="jO0-1z-yDn">
+                                        <barButtonItem key="leftBarButtonItem" title="start" id="fol-57-1XL">
+                                            <connections>
+                                                <action selector="startButton:" destination="vXZ-lx-hvc" id="fcC-Lv-dav"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NsN-1t-VGS">
-                                <rect key="frame" x="0.0" y="561" width="600" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NsN-1t-VGS">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Item" id="3Ad-dp-Dcy"/>
+                                    <barButtonItem title="stop" id="3Ad-dp-Dcy">
+                                        <connections>
+                                            <action selector="stopButton:" destination="vXZ-lx-hvc" id="XqY-Gh-TQJ"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4z5-AH-Rxu"/>
-                                    <barButtonItem title="Item" id="NuE-dA-2bY"/>
+                                    <barButtonItem title="reset" id="NuE-dA-2bY">
+                                        <connections>
+                                            <action selector="resetButton:" destination="vXZ-lx-hvc" id="Fek-Lz-faE"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00:00:000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMZ-bg-VJd">
+                                <rect key="frame" x="131" y="174" width="302" height="103"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="103" id="8ic-WL-3Lv"/>
+                                    <constraint firstAttribute="width" constant="302" id="zHe-h1-CDn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="guh-fF-XdJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="67n-Qw-ull"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="NsN-1t-VGS" secondAttribute="bottom" id="7xC-8g-ccu"/>
+                            <constraint firstAttribute="centerY" secondItem="AMZ-bg-VJd" secondAttribute="centerY" id="GKu-kQ-h0P"/>
+                            <constraint firstItem="NsN-1t-VGS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="M6t-4r-B2J"/>
                             <constraint firstItem="guh-fF-XdJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="MTf-5t-a1i"/>
+                            <constraint firstItem="NsN-1t-VGS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Mnm-8D-Ico"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="NsN-1t-VGS" secondAttribute="bottom" id="Ms2-bN-910"/>
                             <constraint firstItem="guh-fF-XdJ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="OOm-e9-GO8"/>
+                            <constraint firstAttribute="centerX" secondItem="AMZ-bg-VJd" secondAttribute="centerX" id="PEa-mD-Lte"/>
+                            <constraint firstItem="guh-fF-XdJ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Xws-QP-3sT"/>
+                            <constraint firstAttribute="centerY" secondItem="AMZ-bg-VJd" secondAttribute="centerY" id="Y2g-2A-rMB"/>
                             <constraint firstItem="NsN-1t-VGS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="aHZ-rd-3vn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NsN-1t-VGS" secondAttribute="trailing" constant="-16" id="fk2-Vx-aYX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="guh-fF-XdJ" secondAttribute="trailing" constant="-16" id="jjd-WW-gD2"/>
+                            <constraint firstAttribute="centerX" secondItem="AMZ-bg-VJd" secondAttribute="centerX" id="lB9-D9-Fyh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="guh-fF-XdJ" secondAttribute="trailing" constant="-16" id="m4T-im-Q7I"/>
+                            <constraint firstAttribute="centerY" secondItem="AMZ-bg-VJd" secondAttribute="centerY" id="mRw-Cy-pcT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NsN-1t-VGS" secondAttribute="trailing" constant="-16" id="mhy-Bd-ejg"/>
+                            <constraint firstAttribute="centerY" secondItem="AMZ-bg-VJd" secondAttribute="centerY" id="pTN-6p-mX1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NsN-1t-VGS" secondAttribute="trailing" constant="-16" id="rXQ-Rg-fMs"/>
                             <constraint firstAttribute="bottomMargin" secondItem="NsN-1t-VGS" secondAttribute="bottom" id="sA9-kT-stP"/>
+                            <constraint firstAttribute="centerX" secondItem="AMZ-bg-VJd" secondAttribute="centerX" id="thL-Hc-pEh"/>
+                            <constraint firstAttribute="centerX" secondItem="AMZ-bg-VJd" secondAttribute="centerX" id="tnP-3r-DHa"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="timeLabel" destination="AMZ-bg-VJd" id="WsU-jc-SxF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
