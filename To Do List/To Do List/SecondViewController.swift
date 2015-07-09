@@ -25,6 +25,8 @@ class SecondViewController: UIViewController {
     @IBAction func addNew(sender: AnyObject) {
         var s = inputNewList.text
         list.append(s)
+        NSUserDefaults.standardUserDefaults().setObject(list, forKey: "list")
+        inputNewList.text = ""
     }
     @IBAction func tabbed(sender: AnyObject) {
         self.inputNewList.resignFirstResponder()

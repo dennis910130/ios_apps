@@ -10,14 +10,15 @@ import UIKit
 
 var list = [String]()
 
-class FirstViewController: UIViewController, UITableViewDataSource {
+class FirstViewController: UIViewController, UITableViewDelegate {
 
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        list.append("hello")
+        if NSUserDefaults.standardUserDefaults().objectForKey("list") != nil {
+            list = NSUserDefaults.standardUserDefaults().objectForKey("list") as [String]
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,14 +35,14 @@ class FirstViewController: UIViewController, UITableViewDataSource {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             list.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            NSUserDefaults.standardUserDefaults().setObject(list, forKey: "list")
         }
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
 }
-
