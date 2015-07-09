@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Weather_Predictor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XKT-gN-Gfi">
+                                <rect key="frame" x="87" y="52" width="201" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAF-bV-jLV">
+                                <rect key="frame" x="35" y="188" width="305" height="308"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="305" id="IcC-se-Vtg"/>
+                                    <constraint firstAttribute="height" constant="308" id="g9a-A4-ngf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaR-TE-KIT">
+                                <rect key="frame" x="172" y="116" width="30" height="30"/>
+                                <state key="normal" title="Go">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qy7-ix-c1q"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="XKT-gN-Gfi" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="71" id="4jx-wR-syW"/>
+                            <constraint firstItem="BAF-bV-jLV" firstAttribute="top" secondItem="OaR-TE-KIT" secondAttribute="bottom" constant="42" id="61b-2e-Ykd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XKT-gN-Gfi" secondAttribute="trailing" constant="71" id="BTV-J2-USz"/>
+                            <constraint firstItem="OaR-TE-KIT" firstAttribute="top" secondItem="XKT-gN-Gfi" secondAttribute="bottom" constant="34" id="fs3-I8-hVR"/>
+                            <constraint firstItem="BAF-bV-jLV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="19" id="hM8-1Y-fVK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BAF-bV-jLV" secondAttribute="trailing" constant="19" id="kbx-8p-1xj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OaR-TE-KIT" secondAttribute="trailing" constant="157" id="nuT-wt-GGW"/>
+                            <constraint firstItem="XKT-gN-Gfi" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="32" id="qs1-h4-aDI"/>
+                            <constraint firstItem="OaR-TE-KIT" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="156" id="r3S-KH-fs2"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="iEt-Rc-0yn" appends="YES" id="Jm9-gM-y9o"/>
+                        </connections>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="inputText" destination="XKT-gN-Gfi" id="Rcf-ex-eXs"/>
+                        <outlet property="outputLabel" destination="BAF-bV-jLV" id="Xah-6l-2te"/>
+                        <outlet property="tappedButton" destination="iEt-Rc-0yn" id="erS-iN-YLj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="iEt-Rc-0yn"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
