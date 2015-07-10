@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Where_Am_I" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sC0-Oj-w7l">
+                                <rect key="frame" x="0.0" y="44" width="375" height="316"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="316" id="9tv-tr-TXC"/>
+                                    <constraint firstAttribute="width" constant="375" id="t9z-6i-Qnr"/>
+                                </constraints>
+                            </mapView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tui-t9-qnz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Where Am I" id="gUL-of-OZd">
+                                        <barButtonItem key="leftBarButtonItem" title="Go" id="zPj-eL-ljc">
+                                            <connections>
+                                                <action selector="goButton:" destination="vXZ-lx-hvc" id="6At-GP-8gC"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Stop" id="r0c-fs-lhR">
+                                            <connections>
+                                                <action selector="stopButton:" destination="vXZ-lx-hvc" id="rCs-MU-utW"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFZ-60-P4V">
+                                <rect key="frame" x="55" y="418" width="264" height="185"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="264" id="FAu-ni-rpv"/>
+                                    <constraint firstAttribute="height" constant="185" id="kgB-oz-vAB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbn-7G-dcd">
+                                <rect key="frame" x="47" y="626" width="93" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGH-VE-5tV">
+                                <rect key="frame" x="235" y="626" width="93" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fco-7N-rDz">
+                                <rect key="frame" x="137" y="368" width="101" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sC0-Oj-w7l" firstAttribute="top" secondItem="Tui-t9-qnz" secondAttribute="bottom" id="5kC-cE-Fz7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sC0-Oj-w7l" secondAttribute="trailing" constant="-16" id="Aop-xD-7oB"/>
+                            <constraint firstItem="sC0-Oj-w7l" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="IfC-UF-gux"/>
+                            <constraint firstItem="Tui-t9-qnz" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="NXP-tK-PfX"/>
+                            <constraint firstItem="FFZ-60-P4V" firstAttribute="top" secondItem="sC0-Oj-w7l" secondAttribute="bottom" constant="58" id="P9O-u7-DNJ"/>
+                            <constraint firstItem="FFZ-60-P4V" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="39" id="cvc-FC-CVy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FFZ-60-P4V" secondAttribute="trailing" constant="40" id="lZ3-on-Q3d"/>
+                            <constraint firstItem="Tui-t9-qnz" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="t1e-dF-H9S"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tui-t9-qnz" secondAttribute="trailing" constant="-16" id="xOm-uo-ox5"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="latitudeLabel" destination="cbn-7G-dcd" id="Ocm-fU-BbB"/>
+                        <outlet property="longitudeLabel" destination="dGH-VE-5tV" id="T0B-H7-MCl"/>
+                        <outlet property="mapView" destination="sC0-Oj-w7l" id="VTk-cs-6fY"/>
+                        <outlet property="outputLabel" destination="FFZ-60-P4V" id="r7G-6C-Q2l"/>
+                        <outlet property="speedLabel" destination="Fco-7N-rDz" id="l97-P8-tDm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="379.5" y="241.5"/>
+        </scene>
+    </scenes>
+</document>
