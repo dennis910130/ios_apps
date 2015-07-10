@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var outputLabel: UILabel!
     
+    
     func showError() {
         dispatch_async(dispatch_get_main_queue()) {
             self.outputLabel.text = "Sorry we cannot find the weather for " + self.inputText.text
