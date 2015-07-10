@@ -198,6 +198,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="newGameLabel" destination="ZNq-I5-y7H" id="jNO-RS-iWZ"/>
                         <outlet property="resultLabel" destination="2V5-hF-zJr" id="s0p-il-qDr"/>
                     </connections>
                 </viewController>

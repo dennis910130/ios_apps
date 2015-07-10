@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        newGameLabel.hidden = true
+        newGameLabel.alpha = 0
     }
     
     var firstPlayer = true
@@ -21,6 +23,7 @@ class ViewController: UIViewController {
     
     var secondPlayerArray = [Bool](count: 9, repeatedValue: false)
     
+    @IBOutlet weak var newGameLabel: UIButton!
     var gameFinished = false
     
     
@@ -36,6 +39,8 @@ class ViewController: UIViewController {
             }
         }
         resultLabel.text = ""
+        newGameLabel.hidden = true
+        newGameLabel.alpha = 0.0
         
     }
     @IBOutlet weak var resultLabel: UILabel!
@@ -63,6 +68,13 @@ class ViewController: UIViewController {
                     gameFinished = true
                 }
             }
+        }
+        if (gameFinished) {
+            UIView.animateWithDuration(1, animations: {
+                () -> Void in
+                self.newGameLabel.hidden = false
+                self.newGameLabel.alpha = 1.0
+            })
         }
         
     }
