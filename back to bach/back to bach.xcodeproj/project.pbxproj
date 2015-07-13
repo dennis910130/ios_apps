@@ -13,6 +13,9 @@
 		C21CA8831B539931008EF8E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C21CA8821B539931008EF8E1 /* Images.xcassets */; };
 		C21CA8861B539931008EF8E1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C21CA8841B539931008EF8E1 /* LaunchScreen.xib */; };
 		C21CA8921B539931008EF8E1 /* back_to_bachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CA8911B539931008EF8E1 /* back_to_bachTests.swift */; };
+		C21CA89E1B539ACC008EF8E1 /* zhaozhao.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C21CA89D1B539ACC008EF8E1 /* zhaozhao.jpg */; };
+		C21CA8A01B53A11C008EF8E1 /* zhaozhao1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C21CA89F1B53A11C008EF8E1 /* zhaozhao1.mp3 */; };
+		C21CA8A21B53A3DE008EF8E1 /* bach1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C21CA8A11B53A3DE008EF8E1 /* bach1.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		C21CA88B1B539931008EF8E1 /* back to bachTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "back to bachTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C21CA8901B539931008EF8E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C21CA8911B539931008EF8E1 /* back_to_bachTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = back_to_bachTests.swift; sourceTree = "<group>"; };
+		C21CA89D1B539ACC008EF8E1 /* zhaozhao.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zhaozhao.jpg; sourceTree = "<group>"; };
+		C21CA89F1B53A11C008EF8E1 /* zhaozhao1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zhaozhao1.mp3; sourceTree = "<group>"; };
+		C21CA8A11B53A3DE008EF8E1 /* bach1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bach1.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +83,10 @@
 		C21CA8781B539931008EF8E1 /* back to bach */ = {
 			isa = PBXGroup;
 			children = (
+				C21CA8A11B53A3DE008EF8E1 /* bach1.mp3 */,
+				C21CA89D1B539ACC008EF8E1 /* zhaozhao.jpg */,
 				C21CA87B1B539931008EF8E1 /* AppDelegate.swift */,
+				C21CA89F1B53A11C008EF8E1 /* zhaozhao1.mp3 */,
 				C21CA87D1B539931008EF8E1 /* ViewController.swift */,
 				C21CA87F1B539931008EF8E1 /* Main.storyboard */,
 				C21CA8821B539931008EF8E1 /* Images.xcassets */,
@@ -192,8 +201,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C21CA8A21B53A3DE008EF8E1 /* bach1.mp3 in Resources */,
 				C21CA8811B539931008EF8E1 /* Main.storyboard in Resources */,
 				C21CA8861B539931008EF8E1 /* LaunchScreen.xib in Resources */,
+				C21CA89E1B539ACC008EF8E1 /* zhaozhao.jpg in Resources */,
+				C21CA8A01B53A11C008EF8E1 /* zhaozhao1.mp3 in Resources */,
 				C21CA8831B539931008EF8E1 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
