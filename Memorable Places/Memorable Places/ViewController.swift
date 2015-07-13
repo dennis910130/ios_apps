@@ -10,13 +10,24 @@ import UIKit
 import MapKit
 
 var realCoord:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+var selected = -1
+
 
 class ViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        if (selected == -1) {
+            var worldRegion = MKCoordinateRegionForMapRect(MKMapRectWorld)
+            mapView.setRegion(worldRegion, animated: true)
+        }
+        else {
+            var span = MKCoordinateSpanMake(1, 1)
+            var region = MKCoordinateRegionMake(places[selected].location, span)
+            mapView.setRegion(region, animated: true)
+            selected = -1
+        }
         var lpgr = UILongPressGestureRecognizer(target: self, action: "action:")
         lpgr.minimumPressDuration = 2.0
         mapView.addGestureRecognizer(lpgr)
@@ -38,7 +49,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         if (longPressGestureRecognizer.state == UIGestureRecognizerState.Began) {
             var touchPoint = longPressGestureRecognizer.locationInView(mapView)
             realCoord = mapView.convertPoint(touchPoint, toCoordinateFromView: mapView)
-            let addViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AddViewController") as AddViewController
+            let addViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AddViewController") as! AddViewController
             self.navigationController?.pushViewController(addViewController, animated: true)
         }
     }

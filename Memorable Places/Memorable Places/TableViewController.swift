@@ -51,10 +51,18 @@ class TableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
-        cell.textLabel.text = places[indexPath.row].name
+        cell.textLabel!.text = places[indexPath.row].name
         // Configure the cell...
 
         return cell
+    }
+    
+    
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        selected = indexPath.row
+        let mapView = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        self.navigationController?.pushViewController(mapView, animated: true)
+        return indexPath
     }
     
 

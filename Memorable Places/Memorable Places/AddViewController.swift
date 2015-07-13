@@ -30,7 +30,8 @@ class AddViewController: UIViewController {
     @IBAction func okButton(sender: AnyObject) {
         let newPlace = place(location: realCoord, name: nameInput.text, memo: memoInput.text)
         places.append(newPlace)
-        let mapViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as ViewController
+        selected = places.count - 1
+        let mapViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
         self.navigationController?.pushViewController(mapViewController, animated: true)
     }
 
