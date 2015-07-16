@@ -157,6 +157,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                 (user, error) in
                 if user != nil {
                     println("Welcome back \(user!.username!)")
+                    self.performSegueWithIdentifier("loginSegue", sender: nil)
                 } else {
                     if let errorString = error?.userInfo?["error"] as? String {
                         self.showAlert("Error In LogIn", message: errorString)
@@ -166,10 +167,17 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                 }
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 self.activityIndicator.stopAnimating()
+                
             }
 
         }
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if PFUser.currentUser() != nil {
+            self.performSegueWithIdentifier("loginSegue", sender: nil)
+        }
     }
     
     @IBAction func logIn(sender: AnyObject) {
@@ -193,7 +201,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
         UIApplication.sharedApplication().endIgnoringInteractionEvents()
         self.activityIndicator.stopAnimating()
-        
         
     }
     @IBOutlet var passwordInput: UITextField!
