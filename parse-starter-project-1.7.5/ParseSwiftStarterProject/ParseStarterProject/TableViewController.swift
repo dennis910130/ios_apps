@@ -18,16 +18,12 @@ struct Friend {
 
 class TableViewController: UITableViewController {
     
+    var refresher:UIRefreshControl!
+    
     var friends = [Friend]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    var spinner = UIActivityIndicatorView()
+    func refresh() {
         friends.removeAll(keepCapacity: true)
         var query = PFUser.query()!
         query.whereKey("username", notEqualTo: PFUser.currentUser()!.username!)
@@ -42,6 +38,7 @@ class TableViewController: UITableViewController {
                             var friend:Friend?
                             if results.count > 0 {
                                 friend = Friend(userName: user.username!!, userId: user.objectId!!, isFollowing: true)
+                                println(user.username!!)
                             } else {
                                 friend = Friend(userName: user.username!!, userId: user.objectId!!, isFollowing: false)
                             }
@@ -49,11 +46,34 @@ class TableViewController: UITableViewController {
                             self.tableView.reloadData()
                         }
                     })
-    
+                    
                 }
             }
             
         }
+        self.refresher.endRefreshing()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        spinner = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        spinner.center = self.view.center
+        spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        spinner.hidesWhenStopped = true
+        self.view.addSubview(spinner)
+        refresher = UIRefreshControl()
+        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresher.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refresher)
+        refresh()
+
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,6 +102,8 @@ class TableViewController: UITableViewController {
             cell.textLabel?.text = friends[indexPath.row].userName
             if friends[indexPath.row].isFollowing {
                 cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryType.None
             }
             // Configure the cell...
         }
@@ -90,6 +112,7 @@ class TableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+
         
         
         var cell = tableView.cellForRowAtIndexPath(indexPath)
@@ -97,6 +120,8 @@ class TableViewController: UITableViewController {
             var alert = UIAlertController(title: "Unfollowing", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
                 //remove
+                self.spinner.startAnimating()
+                UIApplication.sharedApplication().beginIgnoringInteractionEvents()
                 var query = PFQuery(className: "Followers")
                 query.whereKey("follower", equalTo: PFUser.currentUser()!.objectId!)
                 query.whereKey("following", equalTo: self.friends[indexPath.row].userId)
@@ -106,6 +131,8 @@ class TableViewController: UITableViewController {
                             result.deleteInBackgroundWithBlock({
                                 (success, error) in
                                 cell?.accessoryType = UITableViewCellAccessoryType.None
+                                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                                self.spinner.stopAnimating()
                             })
                         }
                     }
@@ -115,13 +142,25 @@ class TableViewController: UITableViewController {
             alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
                 //self.dismissViewControllerAnimated(true, completion: nil)
             }))
-            self.presentViewController(alert, animated: true, completion: nil)
+            println("open")
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.presentViewController(alert, animated: true, completion: nil)
+            })
+            
         } else {
+            self.spinner.startAnimating()
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            println("ignoring")
             var following = PFObject(className: "Followers")
             following["following"] = friends[indexPath.row].userId
             following["follower"] = PFUser.currentUser()?.objectId
-            following.saveInBackground()
-            cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+            following.saveInBackgroundWithBlock({ (success, error) -> Void in
+                cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                self.spinner.stopAnimating()
+
+            })
+            
         }
         
     }
@@ -135,6 +174,14 @@ class TableViewController: UITableViewController {
     }
     */
 
+    
+    @IBAction func logOutButton(sender: AnyObject) {
+        
+        PFUser.logOut()
+        let viewLogIn = self.storyboard?.instantiateViewControllerWithIdentifier("login") as! ViewController
+        self.presentViewController(viewLogIn, animated: true, completion: nil)
+        
+    }
     /*
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
