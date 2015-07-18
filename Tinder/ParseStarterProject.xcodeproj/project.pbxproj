@@ -22,6 +22,8 @@
 		C26084BD1B59E8D300A0D9F3 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26084BC1B59E8D300A0D9F3 /* FBSDKLoginKit.framework */; };
 		C26084BF1B59E8D900A0D9F3 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26084BE1B59E8D900A0D9F3 /* FBSDKCoreKit.framework */; };
 		C26084C11B59EA0700A0D9F3 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26084C01B59EA0700A0D9F3 /* ParseFacebookUtilsV4.framework */; };
+		C269EDB91B5A520C006412BE /* login_with_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = C269EDB81B5A520C006412BE /* login_with_facebook.png */; };
+		C269EDBB1B5A5703006412BE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C269EDBA1B5A5703006412BE /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		C26084BC1B59E8D300A0D9F3 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		C26084BE1B59E8D900A0D9F3 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		C26084C01B59EA0700A0D9F3 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		C269EDB81B5A520C006412BE /* login_with_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_with_facebook.png; sourceTree = "<group>"; };
+		C269EDBA1B5A5703006412BE /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +93,9 @@
 			children = (
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
 				81BA814C1A49DA1800E65899 /* ViewController.swift */,
+				C269EDBA1B5A5703006412BE /* SignUpViewController.swift */,
 				81BA814E1A49DA1800E65899 /* Main.storyboard */,
+				C269EDB81B5A520C006412BE /* login_with_facebook.png */,
 				81BA81511A49DA1800E65899 /* Images.xcassets */,
 				81BA81481A49DA1800E65899 /* Supporting Files */,
 			);
@@ -191,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81BA81501A49DA1800E65899 /* Main.storyboard in Resources */,
+				C269EDB91B5A520C006412BE /* login_with_facebook.png in Resources */,
 				81BA81521A49DA1800E65899 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C269EDBB1B5A5703006412BE /* SignUpViewController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 			);
