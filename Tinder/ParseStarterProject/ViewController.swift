@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        /*
         let permissions = ["public_profile"]
         
         PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions) {
@@ -28,6 +28,11 @@ class ViewController: UIViewController {
             }
             
         }
+        */
+        let push = PFPush()
+        push.setChannel("Giants")
+        push.setMessage("The Giants just scored!")
+        push.sendPushInBackground()
         
     }
 
