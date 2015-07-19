@@ -15,20 +15,35 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         // Do any additional setup after loading the view.
-        let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+        let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, gender"])
         graphRequest.startWithCompletionHandler({
             (connection, result, error) in
             if error != nil {
                 print(error)
             } else if let result = result{
                 print(result)
+                PFUser.currentUser()?["gender"] = result["gender"]
+                PFUser.currentUser()?["name"] = result["name"]
+                PFUser.currentUser()?.save()
+                let userId = result["id"] as! String
+                let facebookProfileUrl = "http://graph.facebook.com/" + userId + "/picture?type=large"
+                if let fbpicUrl = NSURL(string: facebookProfileUrl) {
+                    if let data = NSData(contentsOfURL: fbpicUrl) {
+                        self.imageView.image = UIImage(data: data)
+                        let imageFile:PFFile = PFFile(data: data)
+                        PFUser.currentUser()?["image"] = imageFile
+                        PFUser.currentUser()?.save()
+                    }
+                }
             }
         })
         
         
     }
 
+    @IBOutlet var imageView: UIImageView!
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -36,7 +51,8 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUp(sender: AnyObject) {
         
-        
+        PFUser.currentUser()?["interestedInWomen"] = interestedInWomen.on
+        PFUser.currentUser()?.save()
         
     }
 

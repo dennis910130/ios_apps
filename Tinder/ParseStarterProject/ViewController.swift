@@ -34,8 +34,11 @@ class ViewController: UIViewController {
                 print(error)
             } else {
                 if let user = user {
-                    print(user)
-                    self.performSegueWithIdentifier("showLogin", sender: self)
+                    if user["interestedInWomen"] == nil {
+                        self.performSegueWithIdentifier("showLogin", sender: self)
+                    } else {
+                        self.performSegueWithIdentifier("showSwipe", sender: self)
+                    }
                 }
             }
             
@@ -48,8 +51,12 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         if let username = PFUser.currentUser()?.username {
-            performSegueWithIdentifier("showLogin", sender: self)
-            print("logged in")
+            if PFUser.currentUser()?["interestedInWomen"] == nil {
+                performSegueWithIdentifier("showLogin", sender: self)
+            } else {
+                performSegueWithIdentifier("showSwipe", sender: self)
+
+            }
         }
         
     }

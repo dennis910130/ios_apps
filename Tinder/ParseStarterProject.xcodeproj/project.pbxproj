@@ -19,6 +19,9 @@
 		81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
 		81BA81811A49E10C00E65899 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81801A49E10C00E65899 /* ParseUI.framework */; };
+		C2034DC71B5B55F10090F578 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2034DC61B5B55F10090F578 /* SwipeViewController.swift */; };
+		C2034DC91B5B917C0090F578 /* Not_available.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2034DC81B5B917C0090F578 /* Not_available.jpg */; };
+		C25B3BEC1B5C648A00E64A86 /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25B3BEB1B5C648A00E64A86 /* ContactTableViewController.swift */; };
 		C26084BD1B59E8D300A0D9F3 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26084BC1B59E8D300A0D9F3 /* FBSDKLoginKit.framework */; };
 		C26084BF1B59E8D900A0D9F3 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26084BE1B59E8D900A0D9F3 /* FBSDKCoreKit.framework */; };
 		C26084C11B59EA0700A0D9F3 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26084C01B59EA0700A0D9F3 /* ParseFacebookUtilsV4.framework */; };
@@ -42,6 +45,9 @@
 		81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		81BA81801A49E10C00E65899 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		81BA81821A49E27F00E65899 /* ParseStarterProject-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ParseStarterProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		C2034DC61B5B55F10090F578 /* SwipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
+		C2034DC81B5B917C0090F578 /* Not_available.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Not_available.jpg; sourceTree = "<group>"; };
+		C25B3BEB1B5C648A00E64A86 /* ContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
 		C26084BC1B59E8D300A0D9F3 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		C26084BE1B59E8D900A0D9F3 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		C26084C01B59EA0700A0D9F3 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
@@ -95,6 +101,9 @@
 				81BA814C1A49DA1800E65899 /* ViewController.swift */,
 				C269EDBA1B5A5703006412BE /* SignUpViewController.swift */,
 				81BA814E1A49DA1800E65899 /* Main.storyboard */,
+				C25B3BEB1B5C648A00E64A86 /* ContactTableViewController.swift */,
+				C2034DC81B5B917C0090F578 /* Not_available.jpg */,
+				C2034DC61B5B55F10090F578 /* SwipeViewController.swift */,
 				C269EDB81B5A520C006412BE /* login_with_facebook.png */,
 				81BA81511A49DA1800E65899 /* Images.xcassets */,
 				81BA81481A49DA1800E65899 /* Supporting Files */,
@@ -197,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81BA81501A49DA1800E65899 /* Main.storyboard in Resources */,
+				C2034DC91B5B917C0090F578 /* Not_available.jpg in Resources */,
 				C269EDB91B5A520C006412BE /* login_with_facebook.png in Resources */,
 				81BA81521A49DA1800E65899 /* Images.xcassets in Resources */,
 			);
@@ -228,7 +238,9 @@
 			files = (
 				C269EDBB1B5A5703006412BE /* SignUpViewController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
+				C25B3BEC1B5C648A00E64A86 /* ContactTableViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
+				C2034DC71B5B55F10090F578 /* SwipeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
