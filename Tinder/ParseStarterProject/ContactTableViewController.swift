@@ -12,7 +12,7 @@ import Parse
 
 class ContactTableViewController: UITableViewController {
 
-    var usernames = [String]()
+    var emails = [String]()
     var images = [UIImage]()
     
     override func viewDidLoad() {
@@ -27,7 +27,7 @@ class ContactTableViewController: UITableViewController {
             (results, error) in
             if let results = results {
                 for result in results as! [PFUser] {
-                    self.usernames.append(result.username!)
+                    self.emails.append(result.email!)
                     let imageFile = result["image"] as! PFFile
                     imageFile.getDataInBackgroundWithBlock {
                         (imageData, error) in
@@ -66,13 +66,13 @@ class ContactTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return usernames.count
+        return emails.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        cell.textLabel?.text = usernames[indexPath.row]
+        cell.textLabel?.text = emails[indexPath.row]
         // Configure the cell...
         if images.count > indexPath.row {
             cell.imageView?.image = images[indexPath.row]
@@ -81,6 +81,15 @@ class ContactTableViewController: UITableViewController {
     }
     
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let url = NSURL(string: "mailto:" + emails[indexPath.row])
+        UIApplication.sharedApplication().openURL(url!)
+        
+        
+        
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

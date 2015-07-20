@@ -14,7 +14,7 @@ class SwipeViewController: UIViewController {
     var imageCenter:CGPoint!
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateImage()
+        
         // Do any additional setup after loading the view.
         
         let gesture = UIPanGestureRecognizer(target: self, action: Selector("dragged:"))
@@ -28,8 +28,10 @@ class SwipeViewController: UIViewController {
             if let geoPoint = geoPoint {
                 PFUser.currentUser()!["location"] = geoPoint
                 PFUser.currentUser()!.save()
+                self.updateImage()
             }
         }
+        
 
     }
     
@@ -38,7 +40,7 @@ class SwipeViewController: UIViewController {
         
         if let latitude = PFUser.currentUser()!["location"]!.latitude {
             if let longitude = PFUser.currentUser()!["location"]!.longitude {
-                query!.whereKey("location", withinGeoBoxFromSouthwest: PFGeoPoint(latitude:latitude - 5, longitude:longitude - 5), toNortheast: PFGeoPoint(latitude:latitude + 5, longitude: longitude + 5))
+                //query!.whereKey("location", withinGeoBoxFromSouthwest: PFGeoPoint(latitude:latitude - 5, longitude:longitude - 5), toNortheast: PFGeoPoint(latitude:latitude + 5, longitude: longitude + 5))
             }
             
         }

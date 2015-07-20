@@ -17,7 +17,7 @@ class SignUpViewController: UIViewController {
         
 
         // Do any additional setup after loading the view.
-        let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, gender"])
+        let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, gender, email"])
         graphRequest.startWithCompletionHandler({
             (connection, result, error) in
             if error != nil {
@@ -26,6 +26,7 @@ class SignUpViewController: UIViewController {
                 print(result)
                 PFUser.currentUser()?["gender"] = result["gender"]
                 PFUser.currentUser()?["name"] = result["name"]
+                PFUser.currentUser()?["email"] = result["email"]
                 PFUser.currentUser()?.save()
                 let userId = result["id"] as! String
                 let facebookProfileUrl = "http://graph.facebook.com/" + userId + "/picture?type=large"
@@ -53,7 +54,7 @@ class SignUpViewController: UIViewController {
         
         PFUser.currentUser()?["interestedInWomen"] = interestedInWomen.on
         PFUser.currentUser()?.save()
-        
+        performSegueWithIdentifier("signIn", sender: self)        
     }
 
     @IBOutlet var interestedInWomen: UISwitch!
