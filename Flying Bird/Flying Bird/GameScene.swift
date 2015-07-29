@@ -10,7 +10,8 @@ import SpriteKit
 import CoreData
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    
+    var highestLabel = SKLabelNode()
+    var latestLabel = SKLabelNode()
     var bird = SKSpriteNode()
     var background = SKSpriteNode()
     let birdGroup:UInt32 = 1
@@ -21,16 +22,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var timer = NSTimer()
     var movingObject = SKNode()
     var score = 0
+    var highest = 0
+    var latest = 0
     override func didMoveToView(view: SKView) {
         self.physicsWorld.contactDelegate = self
         /* Setup your scene here */
+        
         let birdTexture = SKTexture(imageNamed: "img/flappy1.png")
         let birdTexture2 = SKTexture(imageNamed: "img/flappy2.png")
         self.physicsWorld.gravity = CGVectorMake(0, -10)
         let animation = SKAction.animateWithTextures([birdTexture, birdTexture2], timePerFrame: 0.1)
         let makeBirdFlap = SKAction.repeatActionForever(animation)
         self.addChild(scoreLabel)
-        
+        self.addChild(highestLabel)
+        self.addChild(latestLabel)
         self.addChild(movingObject)
         bird = SKSpriteNode(texture: birdTexture)
         bird.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
@@ -44,6 +49,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bird.physicsBody?.contactTestBitMask = objectGroup
         
         
+        if let value = NSUserDefaults.standardUserDefaults().objectForKey("highest") {
+            highest = value as! Int
+        } else {
+            highest = 0
+        }
+        if let value = NSUserDefaults.standardUserDefaults().objectForKey("latest") {
+            latest = value as! Int
+        } else {
+            latest = 0
+        }
+
+        highestLabel.fontName = "Helvetica"
+
+        highestLabel.position = CGPointMake(100, self.view!.frame.height - 20)
+        highestLabel.fontSize = 20
+        highestLabel.fontColor = UIColor.redColor()
+        highestLabel.text = "Highest: \(highest)"
+        highestLabel.zPosition = 1000
+        highestLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Right
+        latestLabel.fontName = "Helvetica"
+        latestLabel.position = CGPointMake(100, self.view!.frame.height - 40)
+        latestLabel.fontSize = 20
+        latestLabel.text = "Latest: \(latest)"
+        latestLabel.zPosition = 1000
+        latestLabel.fontColor = UIColor.redColor()
+        latestLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Right
+        
+        
+        
         self.addChild(bird)
         bird.zPosition = 100
         var ground = SKNode()
@@ -53,7 +87,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ground.physicsBody?.categoryBitMask = objectGroup
         self.addChild(ground)
         
-
+        
         let bgtexture = SKTexture(imageNamed: "img/bg.png")
         let movebg = SKAction.moveByX(-bgtexture.size().width, y: 0, duration: 9)
         let replacebg = SKAction.moveByX(bgtexture.size().width, y: 0, duration: 0)
@@ -90,7 +124,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             background.runAction(moveForever)
             movingObject.addChild(background)
         }
-        timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("makePipes"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(2.5, target: self, selector: Selector("makePipes"), userInfo: nil, repeats: true)
     }
     
     func makePipes() {
@@ -99,7 +133,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var pipe1 = SKSpriteNode(texture: pipeTexture)
         var pipe2 = SKSpriteNode(texture: pipeTexture2)
         
-        let gap = bird.size.height * 3
+        let gap = bird.size.height * 2.5
         var len1:CGFloat = CGFloat(arc4random() % (UInt32(self.frame.height / 2))) + self.frame.height / 4
         var len2:CGFloat = self.frame.height - len1 - gap
         
@@ -141,6 +175,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             scoreLabel.text = "\(score)"
             
         } else {
+            latest = score
+            if latest > highest {
+                NSUserDefaults.standardUserDefaults().setObject(NSNumber(integerLiteral: latest), forKey: "highest")
+                highest = latest
+            }
+            NSUserDefaults.standardUserDefaults().setObject(NSNumber(integerLiteral: latest), forKey: "latest")
+            highestLabel.text = "Highest: \(highest)"
+            latestLabel.text = "Latest: \(latest)"
             gameOver = true
             movingObject.speed = 0
             scoreLabel.fontSize = 20
@@ -149,9 +191,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             timer.invalidate()
         }
     }
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         if gameOver == false {
             bird.physicsBody?.velocity = CGVectorMake(0, 0)
             bird.physicsBody?.applyImpulse(CGVectorMake(0, 50))
@@ -165,7 +205,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             movingObject.speed = 1
         }
     }
-   
+    
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }

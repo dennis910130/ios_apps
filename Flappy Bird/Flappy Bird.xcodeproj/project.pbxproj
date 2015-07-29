@@ -17,6 +17,7 @@
 		C2719D2A1B68949800E2218F /* Flappy_BirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2719D291B68949800E2218F /* Flappy_BirdTests.swift */; };
 		C2719D351B68949800E2218F /* Flappy_BirdUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2719D341B68949800E2218F /* Flappy_BirdUITests.swift */; };
 		C2719D431B68965C00E2218F /* img in Resources */ = {isa = PBXBuildFile; fileRef = C2719D421B68965C00E2218F /* img */; };
+		C2719D461B68C3C800E2218F /* Scores.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2719D441B68C3C800E2218F /* Scores.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		C2719D341B68949800E2218F /* Flappy_BirdUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flappy_BirdUITests.swift; sourceTree = "<group>"; };
 		C2719D361B68949800E2218F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2719D421B68965C00E2218F /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
+		C2719D451B68C3C800E2218F /* Scores.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Scores.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				C2719D101B68949800E2218F /* AppDelegate.swift */,
 				C2719D121B68949800E2218F /* GameScene.sks */,
 				C2719D141B68949800E2218F /* GameScene.swift */,
+				C2719D441B68C3C800E2218F /* Scores.xcdatamodeld */,
 				C2719D161B68949800E2218F /* GameViewController.swift */,
 				C2719D181B68949800E2218F /* Main.storyboard */,
 				C2719D1B1B68949800E2218F /* Assets.xcassets */,
@@ -268,6 +271,7 @@
 			files = (
 				C2719D151B68949800E2218F /* GameScene.swift in Sources */,
 				C2719D171B68949800E2218F /* GameViewController.swift in Sources */,
+				C2719D461B68C3C800E2218F /* Scores.xcdatamodeld in Sources */,
 				C2719D111B68949800E2218F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,6 +517,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C2719D441B68C3C800E2218F /* Scores.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C2719D451B68C3C800E2218F /* Scores.xcdatamodel */,
+			);
+			currentVersion = C2719D451B68C3C800E2218F /* Scores.xcdatamodel */;
+			path = Scores.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C2719D051B68949700E2218F /* Project object */;
 }

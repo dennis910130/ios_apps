@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C2E59B401B68CBF1009DFF7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E59B3F1B68CBF1009DFF7C /* AppDelegate.swift */; };
+		C2E59B421B68CBF1009DFF7C /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C2E59B411B68CBF1009DFF7C /* GameScene.sks */; };
+		C2E59B441B68CBF1009DFF7C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E59B431B68CBF1009DFF7C /* GameScene.swift */; };
+		C2E59B461B68CBF1009DFF7C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E59B451B68CBF1009DFF7C /* GameViewController.swift */; };
+		C2E59B491B68CBF1009DFF7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2E59B471B68CBF1009DFF7C /* Main.storyboard */; };
+		C2E59B4B1B68CBF1009DFF7C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2E59B4A1B68CBF1009DFF7C /* Images.xcassets */; };
+		C2E59B4E1B68CBF1009DFF7C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2E59B4C1B68CBF1009DFF7C /* LaunchScreen.xib */; };
+		C2E59B5A1B68CBF1009DFF7C /* Flying_BirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E59B591B68CBF1009DFF7C /* Flying_BirdTests.swift */; };
+		C2E59B641B68CC2C009DFF7C /* img in Resources */ = {isa = PBXBuildFile; fileRef = C2E59B631B68CC2C009DFF7C /* img */; };
+		C2E59B671B68CD15009DFF7C /* Scores.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2E59B651B68CD15009DFF7C /* Scores.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C2E59B541B68CBF1009DFF7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2E59B321B68CBF1009DFF7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C2E59B391B68CBF1009DFF7C;
+			remoteInfo = "Flying Bird";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C2E59B3A1B68CBF1009DFF7C /* Flying Bird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flying Bird.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2E59B3E1B68CBF1009DFF7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2E59B3F1B68CBF1009DFF7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C2E59B411B68CBF1009DFF7C /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		C2E59B431B68CBF1009DFF7C /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		C2E59B451B68CBF1009DFF7C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		C2E59B481B68CBF1009DFF7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C2E59B4A1B68CBF1009DFF7C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C2E59B4D1B68CBF1009DFF7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C2E59B531B68CBF1009DFF7C /* Flying BirdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flying BirdTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2E59B581B68CBF1009DFF7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2E59B591B68CBF1009DFF7C /* Flying_BirdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flying_BirdTests.swift; sourceTree = "<group>"; };
+		C2E59B631B68CC2C009DFF7C /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
+		C2E59B661B68CD15009DFF7C /* Scores.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Scores.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C2E59B371B68CBF1009DFF7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2E59B501B68CBF1009DFF7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C2E59B311B68CBF1009DFF7C = {
+			isa = PBXGroup;
+			children = (
+				C2E59B3C1B68CBF1009DFF7C /* Flying Bird */,
+				C2E59B561B68CBF1009DFF7C /* Flying BirdTests */,
+				C2E59B3B1B68CBF1009DFF7C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C2E59B3B1B68CBF1009DFF7C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C2E59B3A1B68CBF1009DFF7C /* Flying Bird.app */,
+				C2E59B531B68CBF1009DFF7C /* Flying BirdTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C2E59B3C1B68CBF1009DFF7C /* Flying Bird */ = {
+			isa = PBXGroup;
+			children = (
+				C2E59B3F1B68CBF1009DFF7C /* AppDelegate.swift */,
+				C2E59B411B68CBF1009DFF7C /* GameScene.sks */,
+				C2E59B631B68CC2C009DFF7C /* img */,
+				C2E59B431B68CBF1009DFF7C /* GameScene.swift */,
+				C2E59B451B68CBF1009DFF7C /* GameViewController.swift */,
+				C2E59B651B68CD15009DFF7C /* Scores.xcdatamodeld */,
+				C2E59B471B68CBF1009DFF7C /* Main.storyboard */,
+				C2E59B4A1B68CBF1009DFF7C /* Images.xcassets */,
+				C2E59B4C1B68CBF1009DFF7C /* LaunchScreen.xib */,
+				C2E59B3D1B68CBF1009DFF7C /* Supporting Files */,
+			);
+			path = "Flying Bird";
+			sourceTree = "<group>";
+		};
+		C2E59B3D1B68CBF1009DFF7C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C2E59B3E1B68CBF1009DFF7C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C2E59B561B68CBF1009DFF7C /* Flying BirdTests */ = {
+			isa = PBXGroup;
+			children = (
+				C2E59B591B68CBF1009DFF7C /* Flying_BirdTests.swift */,
+				C2E59B571B68CBF1009DFF7C /* Supporting Files */,
+			);
+			path = "Flying BirdTests";
+			sourceTree = "<group>";
+		};
+		C2E59B571B68CBF1009DFF7C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C2E59B581B68CBF1009DFF7C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C2E59B391B68CBF1009DFF7C /* Flying Bird */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2E59B5D1B68CBF1009DFF7C /* Build configuration list for PBXNativeTarget "Flying Bird" */;
+			buildPhases = (
+				C2E59B361B68CBF1009DFF7C /* Sources */,
+				C2E59B371B68CBF1009DFF7C /* Frameworks */,
+				C2E59B381B68CBF1009DFF7C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Flying Bird";
+			productName = "Flying Bird";
+			productReference = C2E59B3A1B68CBF1009DFF7C /* Flying Bird.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C2E59B521B68CBF1009DFF7C /* Flying BirdTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2E59B601B68CBF1009DFF7C /* Build configuration list for PBXNativeTarget "Flying BirdTests" */;
+			buildPhases = (
+				C2E59B4F1B68CBF1009DFF7C /* Sources */,
+				C2E59B501B68CBF1009DFF7C /* Frameworks */,
+				C2E59B511B68CBF1009DFF7C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C2E59B551B68CBF1009DFF7C /* PBXTargetDependency */,
+			);
+			name = "Flying BirdTests";
+			productName = "Flying BirdTests";
+			productReference = C2E59B531B68CBF1009DFF7C /* Flying BirdTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C2E59B321B68CBF1009DFF7C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Si Chen";
+				TargetAttributes = {
+					C2E59B391B68CBF1009DFF7C = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					C2E59B521B68CBF1009DFF7C = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = C2E59B391B68CBF1009DFF7C;
+					};
+				};
+			};
+			buildConfigurationList = C2E59B351B68CBF1009DFF7C /* Build configuration list for PBXProject "Flying Bird" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C2E59B311B68CBF1009DFF7C;
+			productRefGroup = C2E59B3B1B68CBF1009DFF7C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C2E59B391B68CBF1009DFF7C /* Flying Bird */,
+				C2E59B521B68CBF1009DFF7C /* Flying BirdTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C2E59B381B68CBF1009DFF7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2E59B641B68CC2C009DFF7C /* img in Resources */,
+				C2E59B4E1B68CBF1009DFF7C /* LaunchScreen.xib in Resources */,
+				C2E59B4B1B68CBF1009DFF7C /* Images.xcassets in Resources */,
+				C2E59B421B68CBF1009DFF7C /* GameScene.sks in Resources */,
+				C2E59B491B68CBF1009DFF7C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2E59B511B68CBF1009DFF7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C2E59B361B68CBF1009DFF7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2E59B441B68CBF1009DFF7C /* GameScene.swift in Sources */,
+				C2E59B461B68CBF1009DFF7C /* GameViewController.swift in Sources */,
+				C2E59B671B68CD15009DFF7C /* Scores.xcdatamodeld in Sources */,
+				C2E59B401B68CBF1009DFF7C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2E59B4F1B68CBF1009DFF7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2E59B5A1B68CBF1009DFF7C /* Flying_BirdTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C2E59B551B68CBF1009DFF7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C2E59B391B68CBF1009DFF7C /* Flying Bird */;
+			targetProxy = C2E59B541B68CBF1009DFF7C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C2E59B471B68CBF1009DFF7C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2E59B481B68CBF1009DFF7C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C2E59B4C1B68CBF1009DFF7C /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2E59B4D1B68CBF1009DFF7C /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C2E59B5B1B68CBF1009DFF7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C2E59B5C1B68CBF1009DFF7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C2E59B5E1B68CBF1009DFF7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Flying Bird/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C2E59B5F1B68CBF1009DFF7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Flying Bird/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C2E59B611B68CBF1009DFF7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Flying BirdTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flying Bird.app/Flying Bird";
+			};
+			name = Debug;
+		};
+		C2E59B621B68CBF1009DFF7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Flying BirdTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flying Bird.app/Flying Bird";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C2E59B351B68CBF1009DFF7C /* Build configuration list for PBXProject "Flying Bird" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2E59B5B1B68CBF1009DFF7C /* Debug */,
+				C2E59B5C1B68CBF1009DFF7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2E59B5D1B68CBF1009DFF7C /* Build configuration list for PBXNativeTarget "Flying Bird" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2E59B5E1B68CBF1009DFF7C /* Debug */,
+				C2E59B5F1B68CBF1009DFF7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C2E59B601B68CBF1009DFF7C /* Build configuration list for PBXNativeTarget "Flying BirdTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2E59B611B68CBF1009DFF7C /* Debug */,
+				C2E59B621B68CBF1009DFF7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C2E59B651B68CD15009DFF7C /* Scores.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C2E59B661B68CD15009DFF7C /* Scores.xcdatamodel */,
+			);
+			currentVersion = C2E59B661B68CD15009DFF7C /* Scores.xcdatamodel */;
+			path = Scores.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C2E59B321B68CBF1009DFF7C /* Project object */;
+}
