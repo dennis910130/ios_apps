@@ -76,8 +76,25 @@ class CoupleId: UIViewController {
         }))
         self.presentViewController(alert, animated: true, completion: nil)
     }
-    
-    
+    /*
+    func refresh() {
+        
+        var query = PFQuery(className: "Message")
+        query.whereKey("coupleId", equalTo: PFUser.currentUser()!["coupleId"]!)
+        query.findObjectsInBackgroundWithBlock { (results, error) -> Void in
+            if error == nil {
+                if let results = results {
+                    self.messages = results
+                    println(self.messages)
+                    self.tableView.reloadData()
+                }
+            } else {
+                println(error)
+            }
+        }
+        
+    }
+    */
     /*
     // MARK: - Navigation
 
