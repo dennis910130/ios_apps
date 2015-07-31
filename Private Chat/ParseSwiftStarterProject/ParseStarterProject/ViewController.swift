@@ -12,9 +12,9 @@ class ViewController: UIViewController {
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     @IBAction func logInTouched(sender: AnyObject) {
-        PFUser.logInWithUsernameInBackground(coupleId.text, password: password.text) { (user, error) -> Void in
+        PFUser.logInWithUsernameInBackground(userId.text, password: password.text) { (user, error) -> Void in
             if user != nil {
-                println("logged in");
+                self.loggedIn()
             } else {
                 if let errorString = error?.userInfo?["error"] as? String {
                     println(errorString)
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
             }
         }
     }
-    @IBOutlet var coupleId: UITextField!
+    @IBOutlet var userId: UITextField!
     @IBOutlet var password: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,5 +34,20 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        if PFUser.currentUser() != nil {
+            loggedIn()
+        }
+    }
+    func loggedIn() {
+        println("\(PFUser.currentUser()!.username!) logged in")
+        if let coupleId = PFUser.currentUser()?["coupleId"] {
+            println("already have a couple Id")
+        } else {
+            self.performSegueWithIdentifier("firstTime", sender: self)
+        }
+    }
+    
 }
 
