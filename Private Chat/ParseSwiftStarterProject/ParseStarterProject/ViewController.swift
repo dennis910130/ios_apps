@@ -44,6 +44,7 @@ class ViewController: UIViewController {
         println("\(PFUser.currentUser()!.username!) logged in")
         if let coupleId = PFUser.currentUser()?["coupleId"] {
             println("already have a couple Id")
+            self.performSegueWithIdentifier("showChatting", sender: self)
         } else {
             self.performSegueWithIdentifier("firstTime", sender: self)
         }
