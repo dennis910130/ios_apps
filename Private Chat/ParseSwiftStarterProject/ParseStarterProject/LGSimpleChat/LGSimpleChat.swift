@@ -221,7 +221,7 @@ class LGChatMessageCell : UITableViewCell {
     optional func chatController(chatController: LGChatController, didAddNewMessage message: LGChatMessage)
 }
 
-class LGChatController : UIViewController, UITableViewDelegate, UITableViewDataSource, LGChatInputDelegate {
+class LGChatController : UIViewController, UITableViewDelegate, UITableViewDataSource, LGChatInputDelegate, NSStreamDelegate {
     
     // MARK: Constants
     
@@ -247,7 +247,10 @@ class LGChatController : UIViewController, UITableViewDelegate, UITableViewDataS
     private let chatInput = LGChatInput(frame: CGRectZero)
     private var bottomChatInputConstraint: NSLayoutConstraint!
     private var logOutButton: UIBarButtonItem!
-    
+    private var inputStream: NSInputStream!
+    private var outputStream: NSOutputStream!
+    let serverAddress: CFString = "104.154.60.235"
+    let serverPort: UInt32 = 80
     
     // MARK: Life Cycle
     
@@ -289,8 +292,40 @@ class LGChatController : UIViewController, UITableViewDelegate, UITableViewDataS
         self.setupChatInput()
         self.setupLayoutConstraints()
         self.setupLogOutButton()
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("refresh"), userInfo: nil, repeats: true)
+        //timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("refresh"), userInfo: nil, repeats: true)
+        refresh()
+        initNetworkCommunication()
+        joinChat()
     }
+    
+    func initNetworkCommunication() {
+        var readStream: Unmanaged<CFReadStream>?
+        var writeStream: Unmanaged<CFWriteStream>?
+        
+        CFStreamCreatePairWithSocketToHost(nil, self.serverAddress, self.serverPort, &readStream, &writeStream)
+        inputStream = readStream!.takeRetainedValue()
+        outputStream = writeStream!.takeRetainedValue()
+        inputStream.delegate = self
+        outputStream.delegate = self
+        inputStream.scheduleInRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
+        outputStream.scheduleInRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
+        inputStream.open()
+        outputStream.open()
+    }
+    
+    func joinChat() {
+        let name: String! = "iam:" + PFUser.currentUser()!.objectId!
+        let data: NSData = name.dataUsingEncoding(NSUTF8StringEncoding)!
+        println(data.length)
+        outputStream.write(UnsafePointer<UInt8>(data.bytes), maxLength: data.length)
+    }
+    
+    func sendMessage(msg: String) {
+        let message: String! = "msg:" + msg
+        let data: NSData = message.dataUsingEncoding(NSUTF8StringEncoding)!
+        outputStream.write(UnsafePointer<UInt8>(data.bytes), maxLength: data.length)
+    }
+    
     func refresh() {
         messages.removeAll(keepCapacity: true)
         var query = PFQuery(className: "Message")
@@ -324,6 +359,56 @@ class LGChatController : UIViewController, UITableViewDelegate, UITableViewDataS
     func logOut() {
         PFUser.logOut()
         self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    func stream(aStream: NSStream, handleEvent eventCode: NSStreamEvent) {
+        switch (eventCode){
+            case NSStreamEvent.ErrorOccurred:
+                NSLog("ErrorOccurred")
+                break
+            case NSStreamEvent.EndEncountered:
+                aStream.close()
+                aStream.removeFromRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
+                NSLog("EndEncountered")
+                break
+            case NSStreamEvent.None:
+                NSLog("None")
+                break
+            case NSStreamEvent.HasBytesAvailable:
+                NSLog("HasBytesAvaible")
+                var buffer = [UInt8](count: 4096, repeatedValue: 0)
+                if ( aStream == inputStream){
+                    
+                    while (inputStream.hasBytesAvailable){
+                        var len = inputStream.read(&buffer, maxLength: buffer.count)
+                        if(len > 0){
+                            var output = NSString(bytes: &buffer, length: buffer.count, encoding: NSUTF8StringEncoding)
+                            if (output != ""){
+                                let result = split(output as! String) {$0 == ":"}
+                                if result.count > 1 {
+                                    if (result[0] == PFUser.currentUser()!["couple"] as! String) {
+                                        println(result[1])
+                                        let tmp:LGChatMessage = LGChatMessage(content: result[1], sentByString: "LGChatMessageSentByOpponent")
+                                        self.addNewMessage(tmp)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                break
+            case NSStreamEvent.allZeros:
+                NSLog("allZeros")
+                break
+            case NSStreamEvent.OpenCompleted:
+                NSLog("OpenCompleted")
+                break
+            case NSStreamEvent.HasSpaceAvailable:
+                NSLog("HasSpaceAvailable")
+                break
+            default:
+                NSLog("Unknown")
+        }
     }
     
     private func setupTableView() {
@@ -512,6 +597,7 @@ class LGChatController : UIViewController, UITableViewDelegate, UITableViewDataS
             msg.saveInBackgroundWithBlock({ (success, error) -> Void in
                 if success {
                     self.addNewMessage(newMessage)
+                    self.sendMessage(message)
                 } else {
                     println(error)
                 }

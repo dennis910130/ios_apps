@@ -93,7 +93,7 @@ class ViewController: UIViewController,LGChatControllerDelegate {
     // MARK: LGChatControllerDelegate
     
     func chatController(chatController: LGChatController, didAddNewMessage message: LGChatMessage) {
-        println("Did Add Message: \(message.content)")
+        //println("Did Add Message: \(message.content)")
     }
     
     func shouldChatController(chatController: LGChatController, addMessage message: LGChatMessage) -> Bool {
